@@ -83,11 +83,24 @@ export async function getPostsByCategory(categorySlug: string, page = 1, limit =
   const from = (page - 1) * limit
   const to = from + limit - 1
 
+  const { data: category, error: categoryError } = await supabase
+    .from('categories')
+    .select('id')
+    .eq('slug', categorySlug)
+    .single()
+
+  if (categoryError) {
+    if (categoryError.code === 'PGRST116') {
+      return { posts: [], total: 0 }
+    }
+    throw categoryError
+  }
+
   const { data, error, count } = await supabase
     .from('posts')
     .select(POST_SELECT, { count: 'exact' })
     .eq('status', 'published')
-    .eq('category.slug', categorySlug)
+    .eq('category_id', category.id)
     .order('published_at', { ascending: false })
     .range(from, to)
 
