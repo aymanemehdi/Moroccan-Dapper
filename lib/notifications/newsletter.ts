@@ -39,16 +39,45 @@ export async function sendNewsletterEmail(
     to: subscriber.email,
     subject: sanitizeSubject(`New post: ${post.title}`),
     html: `
-      <div style="font-family:sans-serif;max-width:600px;margin:0 auto;padding:24px;">
-        <h1 style="font-size:24px;font-weight:700;margin-bottom:8px;">${title}</h1>
-        ${excerpt ? `<p style="color:#6b7280;margin-bottom:16px;">${excerpt}</p>` : ''}
-        ${post.cover_image ? `<img src="${escapeHtml(post.cover_image)}" alt="${title}" style="width:100%;border-radius:8px;margin-bottom:16px;" />` : ''}
-        <a href="${escapeHtml(postUrl)}" style="display:inline-block;background:#111;color:#fff;padding:12px 24px;border-radius:6px;text-decoration:none;font-weight:600;">Read Post</a>
-        <hr style="margin:32px 0;border:none;border-top:1px solid #e5e7eb;" />
-        <p style="color:#9ca3af;font-size:12px;">
-          You're receiving this because you subscribed to new posts.
-          <a href="${escapeHtml(unsubscribeUrl)}" style="color:#9ca3af;">Unsubscribe</a>
-        </p>
+      <div style="margin:0;padding:0;background:#fffdf7;color:#101614;font-family:Arial,Helvetica,sans-serif;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#fffdf7;">
+          <tr>
+            <td align="center" style="padding:32px 16px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;">
+                <tr>
+                  <td style="padding:0 0 24px;text-align:center;">
+                    <a href="${escapeHtml(siteUrl)}" style="color:#101614;font-size:13px;font-weight:800;letter-spacing:3px;text-decoration:none;text-transform:uppercase;">Moroccan Dapper</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="border:2px solid #101614;background:#ffffff;box-shadow:5px 5px 0 #101614;">
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td style="padding:32px 28px 12px;">
+                          <span style="display:inline-block;border:2px solid #101614;background:#f2c94c;color:#101614;font-size:11px;font-weight:800;letter-spacing:2px;padding:5px 8px;text-transform:uppercase;">New article</span>
+                          <h1 style="margin:18px 0 10px;color:#101614;font-size:30px;line-height:1.15;">${title}</h1>
+                          ${excerpt ? `<p style="margin:0;color:#756b62;font-size:16px;line-height:1.6;">${excerpt}</p>` : ''}
+                        </td>
+                      </tr>
+                      ${post.cover_image ? `<tr><td style="padding:16px 28px 0;"><img src="${escapeHtml(post.cover_image)}" alt="${title}" width="540" style="display:block;width:100%;height:auto;border:2px solid #101614;" /></td></tr>` : ''}
+                      <tr>
+                        <td style="padding:28px;">
+                          <a href="${escapeHtml(postUrl)}" style="display:inline-block;border:2px solid #101614;background:#101614;color:#ffffff;font-size:14px;font-weight:800;padding:13px 20px;text-decoration:none;">Read the article &rarr;</a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:28px 4px 0;color:#756b62;font-size:12px;line-height:1.6;text-align:center;">
+                    You're receiving this because you subscribed to Moroccan Dapper updates.<br />
+                    <a href="${escapeHtml(unsubscribeUrl)}" style="color:#101614;font-weight:700;text-decoration:underline;">Unsubscribe</a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
       </div>
     `,
   })

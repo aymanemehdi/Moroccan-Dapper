@@ -749,7 +749,7 @@
     border-radius: 0;
     background: #101614;
     color: #fff;
-    box-shadow: 3px 3px 0 #101614;
+    box-shadow: 3px 3px 0 #000;
   }
 
   .ai-assistant-shell .ai-assistant-send:disabled {
@@ -928,6 +928,11 @@
   .public-shell main {
     background: #fff;
     color: #101614;
+  }
+
+  .public-shell.auth-shell,
+  .public-shell.auth-shell main {
+    background: #fff;
   }
 
   .public-shell .public-page-header,

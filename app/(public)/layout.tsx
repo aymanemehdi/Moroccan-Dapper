@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { Instagram, Mail } from 'lucide-react'
 import { PublicNavbar } from '@/components/PublicNavbar'
+import { SubscribeForm } from '@/components/newsletter/SubscribeForm'
 import { Toaster } from 'sonner'
 import { createClient } from '@/lib/supabase/server'
 
@@ -16,8 +17,11 @@ export default async function PublicLayout({ children }: { children: React.React
       <PublicNavbar categories={categories ?? []} />
       <main className="flex-1">{children}</main>
       <Toaster richColors />
-      <footer className="border-t-2 border-black bg-white">
-        <div className="container mx-auto flex max-w-6xl flex-col gap-6 px-4 py-8 md:flex-row md:items-center md:justify-between">
+      <footer className="border-t-[3px] border-black">
+        <div className="border-b-[3px] border-black bg-white px-4 py-8">
+          <SubscribeForm className="mt-0" />
+        </div>
+        <div className="container mx-auto flex max-w-6xl flex-col gap-6 bg-white px-4 py-8 md:flex-row md:items-center md:justify-between">
           <div>
             <p className="brand-name text-base text-foreground">Moroccan Dapper</p>
             <p className="mt-1 text-xs text-muted-foreground">Style notes, culture, and dispatches.</p>
@@ -35,7 +39,7 @@ export default async function PublicLayout({ children }: { children: React.React
             </a>
           </div>
         </div>
-        <div className="border-t-2 border-black bg-muted/40 py-3 text-center text-xs text-muted-foreground">
+        <div className="bg-[#fff4e3] border-t border-black/10 py-3 text-center text-xs text-muted-foreground">
           © {new Date().getFullYear()} Moroccan Dapper. All rights reserved.
         </div>
       </footer>

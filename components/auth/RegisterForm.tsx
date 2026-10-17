@@ -60,13 +60,13 @@ export default function RegisterForm() {
         <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-50 mb-4">
           <CheckCircle2 className="w-8 h-8 text-green-500" />
         </div>
-        <h2 className="text-xl font-bold text-gray-900 mb-2">Check your email</h2>
-        <p className="text-gray-500 text-sm mb-6">
+        <h2 className="mb-2 text-xl font-bold text-foreground">Check your email</h2>
+        <p className="mb-6 text-sm text-muted-foreground">
           We sent a confirmation link to your email. Click it to activate your account.
         </p>
         <Link
           href="/login"
-          className="text-sm text-blue-600 font-medium hover:text-blue-700 transition-colors"
+          className="text-sm font-bold text-foreground underline underline-offset-4 hover:text-black"
         >
           Back to sign in
         </Link>
@@ -78,8 +78,8 @@ export default function RegisterForm() {
     <div className="p-8">
       
       <div className="mb-8">
-        <h2 className="text-2xl font-bold text-gray-900 tracking-tight">Create an account</h2>
-        <p className="text-sm text-gray-500 mt-1">Start writing and managing your content</p>
+        <h2 className="text-2xl font-bold tracking-tight text-foreground">Create an account</h2>
+        <p className="mt-1 text-sm text-muted-foreground">Start writing and managing your content</p>
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
@@ -91,75 +91,75 @@ export default function RegisterForm() {
         )}
 
         <div className="space-y-1.5">
-          <Label htmlFor="full_name" className="text-sm font-medium text-gray-700">Full name</Label>
+          <Label htmlFor="full_name" className="text-sm font-bold text-foreground">Full name</Label>
           <div className="relative">
-            <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 pointer-events-none" />
+            <User className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-foreground" />
             <Input
               id="full_name"
               placeholder="Jane Smith"
-              className="pl-9 h-10"
+              className="h-11 border-2 border-black bg-white pl-9 shadow-[2px_2px_0_0_#000] focus-visible:border-black focus-visible:ring-0"
               {...register('full_name', { onChange: () => clearErrors('full_name') })}
             />
           </div>
           {errors.full_name && (
-            <p className="flex items-center gap-1 text-xs text-red-600 animate-in fade-in duration-150">
+            <p className="flex items-center gap-1 text-xs text-destructive animate-in fade-in duration-150">
               <AlertCircle className="size-3 shrink-0" />{errors.full_name.message}
             </p>
           )}
         </div>
 
         <div className="space-y-1.5">
-          <Label htmlFor="email" className="text-sm font-medium text-gray-700">Email address</Label>
+          <Label htmlFor="email" className="text-sm font-bold text-foreground">Email address</Label>
           <div className="relative">
-            <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 pointer-events-none" />
+            <Mail className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-foreground" />
             <Input
               id="email"
               type="email"
               placeholder="you@example.com"
-              className="pl-9 h-10"
+              className="h-11 border-2 border-black bg-white pl-9 shadow-[2px_2px_0_0_#000] focus-visible:border-black focus-visible:ring-0"
               {...register('email', { onChange: () => clearErrors('email') })}
             />
           </div>
           {errors.email && (
-            <p className="flex items-center gap-1 text-xs text-red-600 animate-in fade-in duration-150">
+            <p className="flex items-center gap-1 text-xs text-destructive animate-in fade-in duration-150">
               <AlertCircle className="size-3 shrink-0" />{errors.email.message}
             </p>
           )}
         </div>
 
         <div className="space-y-1.5">
-          <Label htmlFor="password" className="text-sm font-medium text-gray-700">Password</Label>
+          <Label htmlFor="password" className="text-sm font-bold text-foreground">Password</Label>
           <div className="relative">
-            <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 pointer-events-none" />
+            <Lock className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-foreground" />
             <Input
               id="password"
               type="password"
               placeholder="Min. 6 characters"
-              className="pl-9 h-10"
+              className="h-11 border-2 border-black bg-white pl-9 shadow-[2px_2px_0_0_#000] focus-visible:border-black focus-visible:ring-0"
               {...register('password', { onChange: () => clearErrors('password') })}
             />
           </div>
           {errors.password && (
-            <p className="flex items-center gap-1 text-xs text-red-600 animate-in fade-in duration-150">
+            <p className="flex items-center gap-1 text-xs text-destructive animate-in fade-in duration-150">
               <AlertCircle className="size-3 shrink-0" />{errors.password.message}
             </p>
           )}
         </div>
 
         <div className="space-y-1.5">
-          <Label htmlFor="confirmPassword" className="text-sm font-medium text-gray-700">Confirm password</Label>
+          <Label htmlFor="confirmPassword" className="text-sm font-bold text-foreground">Confirm password</Label>
           <div className="relative">
-            <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 pointer-events-none" />
+            <Lock className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-foreground" />
             <Input
               id="confirmPassword"
               type="password"
               placeholder="Repeat your password"
-              className="pl-9 h-10"
+              className="h-11 border-2 border-black bg-white pl-9 shadow-[2px_2px_0_0_#000] focus-visible:border-black focus-visible:ring-0"
               {...register('confirmPassword', { onChange: () => clearErrors('confirmPassword') })}
             />
           </div>
           {errors.confirmPassword && (
-            <p className="flex items-center gap-1 text-xs text-red-600 animate-in fade-in duration-150">
+            <p className="flex items-center gap-1 text-xs text-destructive animate-in fade-in duration-150">
               <AlertCircle className="size-3 shrink-0" />{errors.confirmPassword.message}
             </p>
           )}
@@ -168,7 +168,7 @@ export default function RegisterForm() {
         <Button
           type="submit"
           disabled={loading}
-          className="w-full h-10 mt-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white border-0 shadow-sm shadow-blue-500/20 transition-all duration-200 hover:shadow-md hover:shadow-blue-500/20 hover:-translate-y-px active:translate-y-0"
+          className="mt-2 h-11 w-full border-2 border-black bg-primary text-white shadow-[3px_3px_0_0_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
         >
           {loading ? (
             <>
@@ -181,9 +181,9 @@ export default function RegisterForm() {
         </Button>
       </form>
 
-      <p className="text-sm text-gray-500 text-center mt-6">
+      <p className="mt-6 text-center text-sm text-muted-foreground">
         Already have an account?{' '}
-        <Link href="/login" className="text-blue-600 font-medium hover:text-blue-700 transition-colors">
+        <Link href="/login" className="font-bold text-foreground underline underline-offset-4 hover:text-black">
           Sign in
         </Link>
       </p>

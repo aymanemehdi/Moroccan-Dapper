@@ -32,10 +32,10 @@ export function PublicNavbar({ categories }: { categories: Category[] }) {
   }, [open])
 
   return (
-    <header className="sticky top-0 z-50 border-b-2 border-black bg-background">
+    <header className="sticky top-0 z-50 border-b-[3px] border-black bg-[#fff4e3]">
       <div className="public-main-header container relative mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-3 md:gap-4">
         <Link href="/" className="public-header-mark group flex min-w-0 items-center gap-2.5">
-          <div className="relative h-10 w-10 overflow-hidden border-2 border-black bg-white shadow-[2px_2px_0_0_#000]">
+          <div className="relative h-10 w-10 overflow-hidden border-2 border-black bg-white shadow-[3px_3px_0_0_#000]">
             <Image src="/logo.png" alt="Moroccan Dapper logo" width={40} height={40} className="h-full w-full object-contain p-1" />
           </div>
           <span className="public-header-brand brand-name text-base text-foreground sm:text-lg">Moroccan Dapper</span>
@@ -54,7 +54,7 @@ export function PublicNavbar({ categories }: { categories: Category[] }) {
 
         <button
           type="button"
-          className="public-nav-toggle ml-auto inline-flex h-10 w-10 items-center justify-center border-2 border-black bg-white text-foreground shadow-[2px_2px_0_0_#000] lg:hidden"
+          className="public-nav-toggle ml-auto inline-flex h-10 w-10 items-center justify-center border-2 border-black bg-white text-foreground shadow-[3px_3px_0_0_#000] lg:hidden"
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
           aria-controls="public-mobile-nav"
@@ -67,12 +67,12 @@ export function PublicNavbar({ categories }: { categories: Category[] }) {
       {open && (
         <div
           id="public-mobile-nav"
-          className="public-mobile-nav border-t-2 border-black bg-background lg:hidden"
+          className="public-mobile-nav border-t-[3px] border-black bg-[#fff4e3] lg:hidden"
         >
           <div className="container mx-auto flex max-w-6xl flex-col gap-3 px-4 py-4">
             <Link
               href="/blog"
-              className="inline-flex w-full items-center justify-center border-2 border-black bg-white px-3 py-2 text-sm font-semibold text-foreground shadow-[2px_2px_0_0_#000]"
+              className="inline-flex w-full items-center justify-center border-2 border-black bg-white px-3 py-2 text-sm font-semibold text-foreground shadow-[3px_3px_0_0_#000]"
             >
               Articles
             </Link>
@@ -82,7 +82,7 @@ export function PublicNavbar({ categories }: { categories: Category[] }) {
         </div>
       )}
 
-      <nav className="public-category-nav border-t border-black/10" aria-label="Blog categories">
+      <nav className="public-category-nav border-t border-black/10 bg-[#fff4e3]" aria-label="Blog categories">
         <div className="container mx-auto flex max-w-6xl items-center gap-1 overflow-x-auto px-4 py-2.5 sm:justify-center sm:gap-2">
           <Link href="/blog" className="public-category-link public-category-all shrink-0">Latest</Link>
           {categories.filter((category) => category.slug !== 'latest').map((category) => (

@@ -29,7 +29,7 @@ export function PostCard({ post }: PostCardProps) {
           </Link>
         )}
         <Link href={`/blog/${post.slug}`}>
-          <h2 className="text-lg font-semibold leading-snug line-clamp-2 transition-colors hover:text-primary">
+          <h2 className="text-lg font-semibold leading-snug line-clamp-2 transition-colors hover:text-black">
             {post.title}
           </h2>
         </Link>

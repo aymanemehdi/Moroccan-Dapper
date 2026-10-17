@@ -11,7 +11,6 @@ import { BackToTopButton } from '@/components/BackToTopButton'
 import { CommentSection } from '@/features/comments/components/CommentSection'
 import { ShareButton } from '@/components/ShareButton'
 import { ChevronLeftIcon } from 'lucide-react'
-import { SubscribeForm } from '@/components/newsletter/SubscribeForm'
 
 export const revalidate = 3600
 
@@ -142,8 +141,6 @@ export default async function PostPage({ params }: PostPageProps) {
             ))}
           </div>
         )}
-
-        <SubscribeForm />
 
         <CommentSection postId={post.id} postSlug={post.slug} />
         </article>
